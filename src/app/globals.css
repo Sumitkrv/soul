@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --plum-midnight: #120B20;
+    --aubergine-deep: #22132E;
+    --lavender-celestial: #B6A1EC;
+    --lilac-soft: #D9CDF5;
+    --ivory-moonlight: #F3EDE3;
+    --gold-antique: #B89A6A;
+    --gold-light: #D4BD8B;
+    --forest-green: #263D36;
+    --terracotta: #A8654C;
+    --ink: #211B25;
+    --ink-muted: #5A5260;
+  }
+}
+
+/* Custom Typography & Editorial Utilities */
+.font-serif-editorial {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.font-sans-editorial {
+  font-family: var(--font-manrope), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Smooth Scrolling & Selection */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+::selection {
+  background-color: #B6A1EC;
+  color: #120B20;
+}
+
+/* Glass & Atmospheric Backgrounds */
+.bg-midnight-plum {
+  background-color: #120B20;
+}
+
+.bg-deep-aubergine {
+  background-color: #22132E;
+}
+
+.bg-celestial-lavender {
+  background-color: #B6A1EC;
+}
+
+.bg-moonlight-ivory {
+  background-color: #F3EDE3;
+}
+
+.bg-forest-deep {
+  background-color: #263D36;
+}
+
+.text-soft-lilac {
+  color: #D9CDF5;
+}
+
+.text-antique-gold {
+  color: #B89A6A;
+}
+
+.text-celestial-lavender {
+  color: #B6A1EC;
+}
+
+.text-moonlight-ivory {
+  color: #F3EDE3;
+}
+
+.text-ink {
+  color: #211B25;
+}
+
+.border-antique-gold {
+  border-color: #B89A6A;
+}
+
+.border-gold-subtle {
+  border-color: rgba(184, 154, 106, 0.25);
+}
+
+.border-lilac-subtle {
+  border-color: rgba(217, 205, 245, 0.2);
+}
+
+/* Micro-animations & 3D Card Flips */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Slow orbital rotations */
+@keyframes celestial-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes celestial-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes celestial-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.03);
+  }
+}
+
+.animate-orbit {
+  animation: celestial-orbit 90s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: celestial-orbit 120s linear infinite reverse;
+}
+
+.animate-float-slow {
+  animation: celestial-float 8s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: celestial-pulse 4s ease-in-out infinite;
+}
+
+/* Custom refined scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #120B20;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B89A6A44;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B89A6A88;
+}
