@@ -621,7 +621,10 @@ export default function BookingWizard({ initialServiceId }: { initialServiceId?:
               className="px-8 py-3.5 rounded-full bg-[#B89A6A] text-[#120B20] text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#D4BD8B] transition-colors disabled:opacity-50 inline-flex items-center gap-2"
             >
               {isSubmitting ? (
-                <span>Preserving in Sanctuary...</span>
+                <>
+                  <div className="w-4 h-4 rounded-full border-2 border-[#120B20] border-t-transparent animate-spin" />
+                  <span>Preserving in Sanctuary...</span>
+                </>
               ) : (
                 <>
                   <Sparkles className="w-4 h-4 text-[#120B20]" />
@@ -635,9 +638,35 @@ export default function BookingWizard({ initialServiceId }: { initialServiceId?:
 
       {/* STEP 6: Confirmation Dossier */}
       {step === 6 && confirmedBooking && (
-        <div className="text-center py-8 space-y-6 animate-fade-in">
-          <div className="w-16 h-16 rounded-full bg-[#B89A6A]/20 border border-[#B89A6A] text-[#B89A6A] flex items-center justify-center mx-auto mb-4">
-            <CheckCircle2 className="w-8 h-8" />
+        <div className="text-center py-8 space-y-6 animate-fade-in relative">
+          {/* Animated Celestial Checkmark with Radiating Golden Pulse */}
+          <div className="relative w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+            {/* Concentric Golden Ripple Pulses */}
+            <div className="absolute inset-0 rounded-full border border-[#B89A6A]/60 animate-ping opacity-30 pointer-events-none" />
+            <div className="absolute -inset-3 rounded-full border border-[#D4BD8B]/40 animate-pulse pointer-events-none" />
+
+            {/* Glowing Golden Circle Background */}
+            <div className="w-20 h-20 rounded-full bg-[#120B20] border-2 border-[#D4BD8B] shadow-[0_0_30px_rgba(212,189,139,0.5)] flex items-center justify-center relative z-10">
+              <svg
+                viewBox="0 0 50 50"
+                className="w-10 h-10 text-[#D4BD8B]"
+                fill="none"
+              >
+                {/* Checkmark drawing path */}
+                <path
+                  d="M14 26 L22 34 L36 18"
+                  stroke="#D4BD8B"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="48"
+                  strokeDashoffset="0"
+                  style={{
+                    animation: "checkmark-draw 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+                  }}
+                />
+              </svg>
+            </div>
           </div>
 
           <span className="text-xs uppercase tracking-[0.3em] text-[#B89A6A] font-semibold">

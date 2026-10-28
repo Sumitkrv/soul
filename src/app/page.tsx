@@ -1,4 +1,5 @@
 import React from "react";
+import CinematicOpening from "@/components/motion/CinematicOpening";
 import HeroSection from "@/components/home/HeroSection";
 import EditorialIntro from "@/components/home/EditorialIntro";
 import OfferingsShowcase from "@/components/home/OfferingsShowcase";
@@ -17,6 +18,9 @@ import CelestialInvitationCta from "@/components/home/CelestialInvitationCta";
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
+      {/* 00: Cinematic opening prologue */}
+      <CinematicOpening />
+
       {/* 01: Cinematic opening scene */}
       <HeroSection />
 

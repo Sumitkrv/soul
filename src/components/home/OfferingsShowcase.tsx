@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { servicesData } from "@/data/services";
+import MagneticButton from "@/components/motion/MagneticButton";
 import { Clock, ArrowUpRight, Sparkles } from "lucide-react";
 
 export default function OfferingsShowcase() {
@@ -10,7 +13,7 @@ export default function OfferingsShowcase() {
   const bottomOffering = servicesData[3]; // Numerology Blueprint
 
   return (
-    <section className="bg-[#120B20] text-[#F3EDE3] py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative">
+    <section className="bg-[#120B20] text-[#F3EDE3] py-24 sm:py-36 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#B89A6A]/20">
@@ -22,7 +25,7 @@ export default function OfferingsShowcase() {
               Bespoke Celestial Experiences
             </h2>
           </div>
-          <p className="mt-4 md:mt-0 text-sm text-[#F3EDE3]/70 font-sans-editorial max-w-md leading-relaxed">
+          <p className="mt-4 md:mt-0 text-sm text-[#F3EDE3]/75 font-sans-editorial max-w-md leading-relaxed">
             Each consultation is crafted as a private, unhurried sanctuary to illuminate your life transitions.
           </p>
         </div>
@@ -30,7 +33,7 @@ export default function OfferingsShowcase() {
         {/* Editorial Asymmetric Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Main 50% Feature: Astrology Consultation */}
-          <div className="lg:col-span-7 group relative rounded-2xl overflow-hidden border border-[#B89A6A]/30 bg-[#22132E] transition-all duration-500 hover:border-[#B89A6A] flex flex-col justify-between">
+          <div className="lg:col-span-7 group relative rounded-3xl overflow-hidden border border-[#B89A6A]/30 bg-[#22132E] transition-all duration-500 hover:border-[#B89A6A] hover:shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex flex-col justify-between">
             <div className="relative aspect-[16/10] w-full overflow-hidden">
               <Image
                 src={mainOffering.image}
@@ -72,12 +75,14 @@ export default function OfferingsShowcase() {
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                 </Link>
 
-                <Link
-                  href="/book"
-                  className="px-5 py-2.5 rounded-full bg-[#B89A6A] text-[#120B20] text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#D4BD8B] transition-colors"
-                >
-                  Reserve Date
-                </Link>
+                <MagneticButton strength={0.2}>
+                  <Link
+                    href="/book"
+                    className="px-5 py-2.5 rounded-full bg-[#B89A6A] text-[#120B20] text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#D4BD8B] transition-colors shadow-md"
+                  >
+                    Reserve Date
+                  </Link>
+                </MagneticButton>
               </div>
             </div>
           </div>
@@ -87,7 +92,7 @@ export default function OfferingsShowcase() {
             {sideOfferings.map((offering) => (
               <div
                 key={offering.id}
-                className="group relative rounded-2xl overflow-hidden border border-[#B89A6A]/25 bg-[#22132E] transition-all duration-500 hover:border-[#B89A6A] flex flex-col justify-between flex-1"
+                className="group relative rounded-3xl overflow-hidden border border-[#B89A6A]/25 bg-[#22132E] transition-all duration-500 hover:border-[#B89A6A] hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between flex-1"
               >
                 <div className="relative aspect-[16/8] w-full overflow-hidden">
                   <Image
@@ -98,12 +103,12 @@ export default function OfferingsShowcase() {
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#22132E] via-[#22132E]/40 to-transparent" />
-                  <div className="absolute top-3 left-3 px-3 py-0.5 rounded-full bg-[#120B20]/80 backdrop-blur-md border border-[#B89A6A]/40 text-[10px] uppercase tracking-[0.2em] text-[#D9CDF5]">
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#120B20]/80 backdrop-blur-md border border-[#B89A6A]/30 text-[10px] uppercase tracking-[0.2em] text-[#D9CDF5]">
                     {offering.category}
                   </div>
                 </div>
 
-                <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
+                <div className="p-6 sm:p-8 flex flex-col justify-between flex-1">
                   <div>
                     <div className="flex items-center justify-between text-xs text-[#B89A6A] font-sans-editorial mb-2">
                       <span>{offering.durationMin} Minutes</span>
@@ -112,7 +117,7 @@ export default function OfferingsShowcase() {
                     <h3 className="font-serif-editorial text-2xl text-[#F3EDE3] group-hover:text-[#D9CDF5] transition-colors">
                       {offering.title}
                     </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-[#F3EDE3]/70 font-sans-editorial line-clamp-2">
+                    <p className="mt-2 text-xs sm:text-sm text-[#F3EDE3]/75 font-sans-editorial leading-relaxed line-clamp-2">
                       {offering.summary}
                     </p>
                   </div>
@@ -120,64 +125,59 @@ export default function OfferingsShowcase() {
                   <div className="mt-6 pt-4 border-t border-[#B89A6A]/15 flex items-center justify-between">
                     <Link
                       href={`/services/${offering.slug}`}
-                      className="text-xs uppercase tracking-[0.2em] text-[#D9CDF5] hover:text-[#F3EDE3] inline-flex items-center gap-1"
+                      className="text-xs uppercase tracking-[0.2em] text-[#D9CDF5] hover:text-[#F3EDE3] inline-flex items-center gap-1 group/link"
                     >
                       <span>Details</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                     </Link>
-                    <Link
-                      href="/book"
-                      className="text-xs uppercase tracking-[0.2em] text-[#B89A6A] hover:text-[#D4BD8B] font-medium"
-                    >
-                      Book →
-                    </Link>
+
+                    <MagneticButton strength={0.15}>
+                      <Link
+                        href={`/book?service=${offering.id}`}
+                        className="px-4 py-2 rounded-full border border-[#B89A6A]/60 text-[#F3EDE3] text-xs uppercase tracking-[0.18em] hover:bg-[#B89A6A] hover:text-[#120B20] transition-colors"
+                      >
+                        Book
+                      </Link>
+                    </MagneticButton>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
 
-          {/* Horizontal Banner Feature Beneath for Numerology / Workshops */}
-          <div className="lg:col-span-12 group rounded-2xl border border-[#B89A6A]/25 bg-gradient-to-r from-[#22132E] via-[#120B20] to-[#22132E] p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8 hover:border-[#B89A6A] transition-all duration-400">
-            <div className="flex-1">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B89A6A] font-semibold mb-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Pythagorean & Archetypal Mathematics</span>
-              </div>
-              <h3 className="font-serif-editorial text-3xl sm:text-4xl text-[#F3EDE3]">
+        {/* 4th Offering Minimal Horizon Banner */}
+        <div className="mt-8 p-6 sm:p-8 rounded-3xl border border-[#B89A6A]/20 bg-[#22132E]/60 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:border-[#B89A6A]/50 transition-colors">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-[#120B20] border border-[#B89A6A]/40 flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5 text-[#B89A6A]" />
+            </div>
+            <div>
+              <span className="text-[10px] uppercase tracking-[0.25em] text-[#B89A6A] font-semibold">
+                Foundation Analysis
+              </span>
+              <h4 className="font-serif-editorial text-xl sm:text-2xl text-[#F3EDE3]">
                 {bottomOffering.title}
-              </h3>
-              <p className="mt-2 text-sm text-[#F3EDE3]/75 font-sans-editorial max-w-2xl leading-relaxed">
+              </h4>
+              <p className="text-xs text-[#F3EDE3]/70 font-sans-editorial mt-0.5">
                 {bottomOffering.summary}
               </p>
             </div>
-
-            <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
-              <Link
-                href="/numerology"
-                className="px-6 py-3 rounded-full border border-[#D9CDF5]/40 text-[#F3EDE3] text-xs uppercase tracking-[0.25em] hover:bg-[#D9CDF5]/15 transition-colors"
-              >
-                Free Calculator
-              </Link>
-              <Link
-                href="/services/numerology-session"
-                className="px-6 py-3 rounded-full bg-[#B89A6A] text-[#120B20] text-xs uppercase tracking-[0.25em] font-medium hover:bg-[#D4BD8B] transition-colors"
-              >
-                Explore Session (${bottomOffering.price})
-              </Link>
-            </div>
           </div>
-        </div>
 
-        {/* View All Offerings Link */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B89A6A] hover:text-[#D9CDF5] transition-colors pb-1 border-b border-[#B89A6A]/40"
-          >
-            <span>View All Sanctuary Readings & Mentorships</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </Link>
+          <div className="flex items-center gap-6 shrink-0 w-full md:w-auto justify-between md:justify-end">
+            <span className="font-serif-editorial text-xl text-[#D9CDF5]">
+              ${bottomOffering.price} USD
+            </span>
+            <MagneticButton strength={0.2}>
+              <Link
+                href={`/book?service=${bottomOffering.id}`}
+                className="px-6 py-2.5 rounded-full bg-[#B89A6A] text-[#120B20] text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#D4BD8B] transition-colors"
+              >
+                Reserve Blueprint
+              </Link>
+            </MagneticButton>
+          </div>
         </div>
       </div>
     </section>
